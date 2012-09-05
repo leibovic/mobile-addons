@@ -1,0 +1,284 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <title>Pocket Sized Add-ons: Extension Development for Firefox Mobile</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1274, user-scalable=no">
+    <link rel="stylesheet" href="themes/mozilla/styles/style.css">
+    <!--
+        To apply styles to the certain slides
+        use slide ID to get needed elements
+        -->
+    <style>
+        #Cover h2 {
+          color:#FFF;
+          text-align:center;
+          font-size:40px;
+        }
+        .slide.shout h2.smaller {
+          font-size: 100px;
+        }
+    </style>
+</head>
+<body class="list">
+    <header class="caption">
+      <h1>Pocket Sized Add-ons: Extension Development for Firefox Mobile</h1>
+      <p><a href="http://blog.margaretleibovic.com">Margaret Leibovic</a> and <a href="">Kris Maglione</a></p>
+    </header>
+
+<!-- 
+    
+    Simply copy the whole block for each slide you want.
+    Special slides get extra classes. Each slide needs an ID 
+    to allow for bookmarking and target jumping.
+    
+    Images, videos and SVG objects are automatically centred.
+
+    If you add a "cover" class images are taking over the whole 
+    screen resized to height. Add a "w" class to resize to width.
+
+ -->
+    <div class="slide cover" id="Cover"><div>
+      <section>
+        <header style="margin-top:-40px;">
+          <h2>Pocket Sized Add-ons: Extension Development for Firefox Mobile</h2>
+        </header>
+        <img src="pictures/mozcamp_mobilize_2400x1600.png" alt="">
+        <footer class="byline">
+            Margaret Leibovic and Kris Maglione<br/>
+            MozCamp EU, Warsaw<br/>
+            9 September 2012
+        </footer>
+      </section>
+    </div></div>
+
+    <div class="slide"><div>
+      <section>
+        <header>
+          <h2>Mobile Add-ons</h2>
+        </header>
+        <ul>
+          <li>People use phones and tablets differently than desktop computers</li>
+          <li>Small screens mean less visible UI</li>
+        </ul>
+      </section>
+    </div></div>
+
+    <div class="slide shout"><div>
+      <section>
+        <h2 class="smaller">So what can mobile add-ons do?</h2>
+      </section>
+    </div></div>
+
+    <div class="slide"><div>
+      <section>
+        <header>
+          <h2>Interact with the Native Java UI</h2>
+        </header>
+        <ul>
+          <li>Menu items</li>
+          <li>Notifications</li>
+          <li>Open/close tabs</li>
+          <li>Prompts/dialogs</li>
+        </ul>
+      </section>
+    </div></div>
+
+    <div class="slide"><div>
+      <section>
+        <header>
+          <h2>Interact with Web Content</h2>
+        </header>
+        <ul>
+          <li>Modify the DOM</li>
+          <li>Listen for events</li>
+          <ul>
+            <li>Web progress</li>
+            <li>Touch events</li>
+          </ul>
+          <li>Get the user's location</li>
+          <li>Set preferences</li>
+          <li>Basically anything you can do on desktop Firefox!</li>
+        </ul>
+      </section>
+    </div></div>
+
+    <div class="slide"><div>
+      <section>
+        <header>
+          <h2>Interact with Profile Data</h2>
+        </header>
+        <ul>
+          <li>Query history/bookmarks database</li>
+        </ul>
+      </section>
+    </div></div>
+
+    <div class="slide"><div>
+      <section>
+        <header>
+          <h2>Some Existing Add-ons</h2>
+        </header>
+        <ul>
+          <li>Ad-Block Plus</li>
+          <li>Always Request Desktop Site</li>
+          <li>Clear History on Exit</li>
+        </ul>
+      </section>
+    </div></div>
+
+    <div class="slide shout"><div>
+      <section>
+        <h2 class="smaller">Now let's build an add-on!</h2>
+      </section>
+    </div></div>
+
+    <div class="slide"><div>
+      <section>
+        <header>
+          <h2>View Source Add-on</h2>
+        </header>
+        <ul>
+          <li>Add a menu item to view the source of a webpage</li>
+          <li>A basic restartless add-on skeleton is <a href="https://github.com/mfinkle/skeleton-addon-fxandroid">available on github</a></li>
+          <li>Documentation for this walkthrough is <a href="https://developer.mozilla.org/en-US/docs/Extensions/Mobile/Walkthrough">available on MDN</a></li>
+        </ul>
+      </section>
+    </div></div>
+
+    <div class="slide"><div>
+      <section>
+        <header>
+          <h2>install.rdf</h2>
+        </header>
+      </section>
+    </div></div>
+
+    <div class="slide"><div>
+      <section>
+        <header>
+          <h2>bootstrap.js</h2>
+        </header>
+      </section>
+    </div></div>
+
+    <div class="slide"><div>
+      <section>
+        <header>
+          <h2>Implementing the UI</h2>
+        </header>
+        <ul>
+          <li><code>loadIntoWindow()</code> to initialize our add-on</li>
+          <li><code>unloadFromWindow()</code> to clean up any changes we've made</li>
+        </ul>
+        <pre style="font-size:22px;">
+          <code>var menuId;</code>
+          <code>function <mark>loadIntoWindow</mark>(window) {</code>
+          <code>  menuId = window.NativeWindow.menu.add(</code>
+          <code>    "View Source", null, function() { viewSource(window); });</code>
+          <code>}</code>
+          <code>function <mark>unloadFromWindow</mark>(window) {</code>
+          <code>  window.NativeWindow.menu.remove(menuId);</code>
+          <code>}</code>
+        </pre>
+      </section>
+    </div></div>
+
+    <div class="slide"><div>
+      <section>
+        <header>
+          <h2>Implementing Behavior</h2>
+        </header>
+        <ul>
+          <li>Now we need to implement the <code>viewSource()</code> function</li>
+        </ul>
+        <pre style="font-size: 22px;">
+          <code>function <mark>viewSource</mark>(window) {</code>
+          <code>  let url = window.content.location.href;</code>
+          <code>  window.console.log("displaying source for " + url);</code>
+          <code>  window.BrowserApp.addTab("view-source:" + url);</code>
+          <code>}</code>
+        </pre>
+      </section>
+    </div></div>
+
+    <div class="slide"><div>
+      <section>
+        <header>
+          <h2>Testing the Add-on</h2>
+        </header>
+        <ul>
+          <li>Packaging</li>
+          <li>Installing</li>
+        </ul>
+      </section>
+    </div></div>
+
+    <div class="slide"><div>
+      <section>
+        <header>
+          <h2>Debugging the Add-on</h2>
+        </header>
+        <ul>
+          <li>Access web console messages with adb logcat</li>
+          <li>Remote debugger</li>
+        </ul>
+      </section>
+    </div></div>
+
+    <div class="slide shout"><div>
+      <section>
+        <header>
+          <h2>Hack time!</h2>
+        </header>
+      </section>
+    </div></div>
+
+    <div class="slide"><div>
+      <section>
+        <header>
+          <h2>Add-on Ideas</h2>
+        </header>
+        <ul>
+          <li>Drawing on top of a webpage</li>
+          <li>Cropped screenshots</li>
+          <li>Automatic text translation</li>
+          <li>Website compatibility bug reporter</li>
+          <li><a href="http://dolphin-browser.com/add-ons/">Dolphin Add-ons</a> and <a href="https://addons.mozilla.org/en-US/mobile/">XUL Fennec Add-ons</a></li>
+        </ul>
+      </section>
+    </div></div>
+
+    <div class="slide shout"><div>
+      <section>
+        <header>
+          <h2>Debrief and Demos</h2>
+        </header>
+      </section>
+    </div></div>
+
+    <div class="slide"><div>
+      <section>
+        <header>
+          <h2>More Resources</h2>
+        </header>
+        <ul>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Extensions/Mobile">MDN Documentation</a></li>
+          <li>Communicate with the Firefox for Android development team</li>
+          <ul>
+            <li>File bugs in the <a href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Firefox%20for%20Android">Firefox for Android Bugzilla component</a></li>
+            <li>Join #mobile on irc.mozilla.org</li>
+          </ul>
+        </ul>
+      </section>
+    </div></div>
+    <!--
+        To hide progress bar from entire presentation
+        just remove “progress” element.
+        -->
+    <div class="progress"><div></div></div>
+    <script src="scripts/script.js"></script>
+    <!-- Copyright © 2010–2012 Vadim Makeev — pepelsbey.net -->
+    <!-- Photos by John Carey — fiftyfootshadows.net -->
+</body>
+</html>
