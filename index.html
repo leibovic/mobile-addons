@@ -1,41 +1,30 @@
 <!DOCTYPE HTML>
 <html lang="en-US">
 <head>
-    <title>Pocket Sized Add-ons: Extension Development for Firefox Mobile</title>
+    <title>Developing Add-ons for Firefox for Android</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1274, user-scalable=no">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
     <link rel="stylesheet" href="themes/mozilla/styles/style.css">
     <!--
         To apply styles to the certain slides
         use slide ID to get needed elements
         -->
     <style>
-        #Cover h2 {
-          color:#FFF;
-          text-align:center;
-          font-size:40px;
+        #cover section {
+          background: #fff;
         }
-        #Cover header {
-          margin-top: -45px;
-        }
-        #Cover .byline {
-          text-align: center;
-          width: 100%;
-          left: 0;
-          bottom: 50px;
+        #cover header {
+          margin: 0;
         }
         .slide.shout h2.smaller {
           font-size: 100px;
-        }
-        .slide ul {
-          margin-bottom: 20px;
         }
     </style>
 </head>
 <body class="list">
     <header class="caption">
-      <h1>Pocket Sized Add-ons: Extension Development for Firefox Mobile</h1>
-      <p><a href="http://blog.margaretleibovic.com">Margaret Leibovic</a> and <a href="">Kris Maglione</a></p>
+      <h1>Developing Add-ons for Firefox for Android</h1>
+      <p><a href="http://blog.margaretleibovic.com">Margaret Leibovic</a></p>
     </header>
 
 <!-- 
@@ -50,21 +39,17 @@
     screen resized to height. Add a "w" class to resize to width.
 
  -->
-    <div class="slide cover" id="Cover"><div>
+    <div class="slide" id="cover"><div>
       <section>
         <header>
-          <h2>Pocket Sized Add-ons: Extension Development for Firefox Mobile</h2>
+          <h2>Developing Add-ons for Firefox for Android</h2>
         </header>
-        <img src="pictures/mozcamp_mobilize_2400x1600.png" alt="">
-        <footer class="byline">
-            Margaret Leibovic and Kris Maglione<br/>
-            MozCamp EU, Warsaw<br/>
-            9 September 2012
-        </footer>
+        <footer class="byline"><a href="http://blog.margaretleibovic.com">Margaret Leibovic</a></footer>
+        <img src="pictures/foxkeh.jpg">
       </section>
     </div></div>
 
-    <div class="slide" id="1"><div>
+    <div class="slide" id="2"><div>
       <section>
         <header>
           <h2>Mobile Add-ons</h2>
@@ -77,27 +62,28 @@
       </section>
     </div></div>
 
-    <div class="slide shout" id="2"><div>
+    <div class="slide shout" id="3"><div>
       <section>
         <h2 class="smaller">So what can mobile add-ons do?</h2>
       </section>
     </div></div>
 
-    <div class="slide" id="3"><div>
+    <div class="slide" id="4"><div>
       <section>
         <header>
-          <h2>Interact with the Native Java UI</h2>
+          <h2>Interact with Native Android UI</h2>
         </header>
         <ul>
-          <li>Menu items</li>
-          <li>Notifications</li>
+          <li>Cutomize menu items</li>
+          <li>Show notifications</li>
           <li>Open/close tabs</li>
-          <li>Prompts/dialogs</li>
+          <li>Show prompts/dialogs</li>
+          <li>Customize the home page (API in progress)</li>
         </ul>
       </section>
     </div></div>
 
-    <div class="slide" id="4"><div>
+    <div class="slide" id="5"><div>
       <section>
         <header>
           <h2>Interact with Web Content</h2>
@@ -114,7 +100,7 @@
       </section>
     </div></div>
 
-    <div class="slide" id="5"><div>
+    <div class="slide" id="6"><div>
       <section>
         <header>
           <h2>Interact with Profile Data</h2>
@@ -122,30 +108,33 @@
         <ul>
           <li>Query history/bookmarks database</li>
           <li>Set preferences</li>
+          <li>Store data</li>
         </ul>
       </section>
     </div></div>
 
-    <div class="slide" id="6"><div>
+    <div class="slide" id="7"><div>
       <section>
         <header>
           <h2>Some Existing Add-ons</h2>
         </header>
         <ul>
           <li>Ad-Block Plus</li>
-          <li>Always Request Desktop Site</li>
-          <li>Clear History on Exit</li>
+          <li>Tap Translate</li>
+          <li>Phony</li>
+          <li>Mobile Password Manager</li>
+          <li>These and more on <a href="https://addons.mozilla.org/android/">addons.mozilla.org</a></li>
         </ul>
       </section>
     </div></div>
 
-    <div class="slide shout" id="7"><div>
+    <div class="slide shout" id="8"><div>
       <section>
         <h2 class="smaller">Now let's build an add-on!</h2>
       </section>
     </div></div>
 
-    <div class="slide" id="8"><div>
+    <div class="slide" id="9"><div>
       <section>
         <header>
           <h2>View Source Add-on</h2>
@@ -158,7 +147,7 @@
       </section>
     </div></div>
 
-    <div class="slide" id="9"><div>
+    <div class="slide" id="10"><div>
       <section>
         <header>
           <h2>Basic Restartless Add-on</h2>
@@ -247,50 +236,17 @@
     <div class="slide" id="14"><div>
       <section>
         <header>
-          <h2>Debugging the Add-on</h2>
+          <h2>Using Remote Developer Tools</h2>
         </header>
         <ul>
-          <li>Access web console messages with <code>adb logcat</code></li>
-          <ul>
-            <li>Filter for "GeckoConsole" to limit log output</li>
-          </ul>
           <li>Remote debugger</li>
+          <li>Remote inspector (new in Firefox 26!)</li>
         </ul>
       </section>
     </div></div>
 
-    <div class="slide shout" id="15"><div>
-      <section>
-        <header>
-          <h2>Hack time!</h2>
-        </header>
-      </section>
-    </div></div>
 
-    <div class="slide" id="16"><div>
-      <section>
-        <header>
-          <h2>Add-on Ideas</h2>
-        </header>
-        <ul>
-          <li>Drawing on top of a webpage</li>
-          <li>Cropped screenshots</li>
-          <li>Automatic text translation</li>
-          <li>Website compatibility bug reporter</li>
-          <li><a href="http://dolphin-browser.com/add-ons/">Dolphin Add-ons</a> and <a href="https://addons.mozilla.org/en-US/mobile/">XUL Fennec Add-ons</a></li>
-        </ul>
-      </section>
-    </div></div>
-
-    <div class="slide shout" id="17"><div>
-      <section>
-        <header>
-          <h2>Debrief and Demos</h2>
-        </header>
-      </section>
-    </div></div>
-
-    <div class="slide" id="18"><div>
+    <div class="slide" id="15"><div>
       <section>
         <header>
           <h2>More Resources</h2>
@@ -305,11 +261,13 @@
         </ul>
       </section>
     </div></div>
-    <!--
-        To hide progress bar from entire presentation
-        just remove “progress” element.
-        -->
-    <!--div class="progress"><div></div></div-->
+
+    <div class="slide shout" id="16"><div>
+      <section>
+        <h2 class="smaller">Thanks!</h2>
+      </section>
+    </div></div>
+
     <script src="scripts/script.js"></script>
     <!-- Copyright © 2010–2012 Vadim Makeev — pepelsbey.net -->
     <!-- Photos by John Carey — fiftyfootshadows.net -->
