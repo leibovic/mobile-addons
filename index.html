@@ -1,277 +1,278 @@
 <!DOCTYPE HTML>
 <html lang="en-US">
 <head>
-        <title>Developing Add-ons for Firefox for Android</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, user-scalable=no">
-        <link rel="stylesheet" href="themes/mozilla/styles/style.css">
-        <!--
-                To apply styles to the certain slides
-                use slide ID to get needed elements
-                -->
-        <style>
-                #cover section {
-                    background: #fff;
-                }
-                #cover header {
-                    margin: 0;
-                }
-                .slide.shout h2.smaller {
-                    font-size: 100px;
-                }
-        </style>
+    <title>Developing Add-ons for Firefox for Android</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" href="themes/mozilla/styles/style.css">
+    <!--
+        To apply styles to the certain slides
+        use slide ID to get needed elements
+        -->
+    <style>
+        #cover section {
+          background: #fff;
+        }
+        #cover header {
+          margin: 0;
+        }
+        .slide.shout h2.smaller {
+          font-size: 100px;
+        }
+    </style>
 </head>
 <body class="list">
-        <header class="caption">
-            <h1>Developing Add-ons for Firefox for Android</h1>
-            <p><a href="http://blog.margaretleibovic.com">Margaret Leibovic</a></p>
-        </header>
+    <header class="caption">
+      <h1>Developing Add-ons for Firefox for Android</h1>
+      <p><a href="http://blog.margaretleibovic.com">Margaret Leibovic</a></p>
+    </header>
 
 <!-- 
-        
-        Simply copy the whole block for each slide you want.
-        Special slides get extra classes. Each slide needs an ID 
-        to allow for bookmarking and target jumping.
-        
-        Images, videos and SVG objects are automatically centred.
+    
+    Simply copy the whole block for each slide you want.
+    Special slides get extra classes. Each slide needs an ID 
+    to allow for bookmarking and target jumping.
+    
+    Images, videos and SVG objects are automatically centred.
 
-        If you add a "cover" class images are taking over the whole 
-        screen resized to height. Add a "w" class to resize to width.
+    If you add a "cover" class images are taking over the whole 
+    screen resized to height. Add a "w" class to resize to width.
 
-  -->
-        <div class="slide" id="cover"><div>
-            <section>
-                <header>
-                    <h2>Developing Add-ons for Firefox for Android</h2>
-                </header>
-                <footer class="byline"><a href="http://blog.margaretleibovic.com">Margaret Leibovic</a></footer>
-                <img src="pictures/foxkeh.jpg">
-            </section>
-        </div></div>
+ -->
+    <div class="slide" id="cover"><div>
+      <section>
+        <header>
+          <h2>Developing Add-ons for Firefox for Android</h2>
+        </header>
+        <footer class="byline"><a href="http://blog.margaretleibovic.com">Margaret Leibovic</a></footer>
+        <img src="pictures/foxkeh.jpg">
+      </section>
+    </div></div>
 
-        <div class="slide" id="2"><div>
-            <section>
-                <header>
-                    <h2>Mobile Add-ons</h2>
-                </header>
-                <ul>
-                    <li>People use phones and tablets differently than desktop computers</li>
-                    <li>Small screens mean less visible UI</li>
-                    <li>No more XUL, but you can still build add-ons in JS!</li>
-                </ul>
-            </section>
-        </div></div>
+    <div class="slide" id="2"><div>
+      <section>
+        <header>
+          <h2>Mobile Add-ons</h2>
+        </header>
+        <ul>
+          <li>People use phones and tablets differently than desktop computers</li>
+          <li>Small screens mean less visible UI</li>
+          <li>No more XUL, but you can still build add-ons in JS!</li>
+        </ul>
+      </section>
+    </div></div>
 
-        <div class="slide shout" id="3"><div>
-            <section>
-                <h2 class="smaller">So what can mobile add-ons do?</h2>
-            </section>
-        </div></div>
+    <div class="slide shout" id="3"><div>
+      <section>
+        <h2 class="smaller">So what can mobile add-ons do?</h2>
+      </section>
+    </div></div>
 
-        <div class="slide" id="4"><div>
-            <section>
-                <header>
-                    <h2>Interact with Native Android UI</h2>
-                </header>
-                <ul>
-                    <li>Customize menu items</li>
-                    <li>Show notifications</li>
-                    <li>Open/close tabs</li>
-                    <li>Show prompts/dialogs</li>
-                    <li>Customize the home page (API in progress)</li>
-                </ul>
-            </section>
-        </div></div>
+    <div class="slide" id="4"><div>
+      <section>
+        <header>
+          <h2>Interact with Native Android UI</h2>
+        </header>
+        <ul>
+          <li>Customize menu items</li>
+          <li>Show notifications</li>
+          <li>Open/close tabs</li>
+          <li>Show prompts/dialogs</li>
+          <li>Customize the home page (API in progress)</li>
+        </ul>
+      </section>
+    </div></div>
 
-        <div class="slide" id="5"><div>
-            <section>
-                <header>
-                    <h2>Interact with Web Content</h2>
-                </header>
-                <ul>
-                    <li>Modify the DOM</li>
-                    <li>Listen for events</li>
-                    <ul>
-                        <li>Web progress</li>
-                        <li>Touch events</li>
-                    </ul>
-                    <li>Get the user's location</li>
-                </ul>
-            </section>
-        </div></div>
+    <div class="slide" id="5"><div>
+      <section>
+        <header>
+          <h2>Interact with Web Content</h2>
+        </header>
+        <ul>
+          <li>Modify the DOM</li>
+          <li>Listen for events</li>
+          <ul>
+            <li>Web progress</li>
+            <li>Touch events</li>
+          </ul>
+          <li>Get the user's location</li>
+        </ul>
+      </section>
+    </div></div>
 
-        <div class="slide" id="6"><div>
-            <section>
-                <header>
-                    <h2>Interact with Profile Data</h2>
-                </header>
-                <ul>
-                    <li>Query history/bookmarks database</li>
-                    <li>Set preferences</li>
-                    <li>Store data</li>
-                </ul>
-            </section>
-        </div></div>
+    <div class="slide" id="6"><div>
+      <section>
+        <header>
+          <h2>Interact with Profile Data</h2>
+        </header>
+        <ul>
+          <li>Query history/bookmarks database</li>
+          <li>Set preferences</li>
+          <li>Store data</li>
+        </ul>
+      </section>
+    </div></div>
 
-        <div class="slide" id="7"><div>
-            <section>
-                <header>
-                    <h2>Some Existing Add-ons</h2>
-                </header>
-                <ul>
-                    <li>Ad-Block Plus</li>
-                    <li>Tap Translate</li>
-                    <li>Phony</li>
-                    <li>Mobile Password Manager</li>
-                    <li>These and more on <a href="https://addons.mozilla.org/android/">addons.mozilla.org</a></li>
-                </ul>
-            </section>
-        </div></div>
+    <div class="slide" id="7"><div>
+      <section>
+        <header>
+          <h2>Some Existing Add-ons</h2>
+        </header>
+        <ul>
+          <li>Ad-Block Plus</li>
+          <li>Tap Translate</li>
+          <li>Phony</li>
+          <li>Mobile Password Manager</li>
+          <li>These and more on <a href="https://addons.mozilla.org/android/">addons.mozilla.org</a></li>
+        </ul>
+      </section>
+    </div></div>
 
-        <div class="slide shout" id="8"><div>
-            <section>
-                <h2 class="smaller">Now let's build an add-on!</h2>
-            </section>
-        </div></div>
+    <div class="slide shout" id="8"><div>
+      <section>
+        <h2 class="smaller">Now let's build an add-on!</h2>
+      </section>
+    </div></div>
 
-        <div class="slide" id="9"><div>
-            <section>
-                <header>
-                    <h2>View Source Add-on</h2>
-                </header>
-                <ul>
-                    <li>Add a menu item to view the source of a webpage</li>
-                    <li>A basic restartless add-on skeleton is <a href="https://github.com/mfinkle/skeleton-addon-fxandroid">available on github</a></li>
-                    <li>Documentation for this walkthrough is <a href="https://developer.mozilla.org/en-US/docs/Extensions/Mobile/Walkthrough">available on MDN</a></li>
-                </ul>
-            </section>
-        </div></div>
+    <div class="slide" id="9"><div>
+      <section>
+        <header>
+          <h2>View Source Add-on</h2>
+        </header>
+        <ul>
+          <li>Add a menu item to view the source of a webpage</li>
+          <li>A basic restartless add-on skeleton is <a href="https://github.com/mfinkle/skeleton-addon-fxandroid">available on github</a></li>
+          <li>Documentation for this walkthrough is <a href="https://developer.mozilla.org/en-US/docs/Extensions/Mobile/Walkthrough">available on MDN</a></li>
+        </ul>
+      </section>
+    </div></div>
 
-        <div class="slide" id="10"><div>
-            <section>
-                <header>
-                    <h2>Basic Restartless Add-on</h2>
-                </header>
-                <ul>
-                    <li><code>install.rdf</code></li>
-                    <ul>
-                        <li><a href="https://developer.mozilla.org/en/Install_Manifests">Install manifest</a> with metadata, such as the add-on's identifier, author, and target application</li>
-                    </ul>
-                    <li><code>bootstrap.js</code></li>
-                    <ul>
-                        <li>File that contains <a href="https://developer.mozilla.org/en/Extensions/Bootstrapped_extensions">bootstrapped add-on</a> logic</li>
-                    </ul>
-                    <li><code>build.sh</code> and <code>config_build.sh</code></li>
-                    <ul>
-                        <li>The basic restartless add-on skeleton also includes a build script to package and install your add-on</li>
-                    </ul>
-                </ul>
-            </section>
-        </div></div>
+    <div class="slide" id="10"><div>
+      <section>
+        <header>
+          <h2>Basic Restartless Add-on</h2>
+        </header>
+        <ul>
+          <li><code>install.rdf</code></li>
+          <ul>
+            <li><a href="https://developer.mozilla.org/en/Install_Manifests">Install manifest</a> with metadata, such as the add-on's identifier, author, and target application</li>
+          </ul>
+          <li><code>bootstrap.js</code></li>
+          <ul>
+            <li>File that contains <a href="https://developer.mozilla.org/en/Extensions/Bootstrapped_extensions">bootstrapped add-on</a> logic</li>
+          </ul>
+          <li><code>build.sh</code> and <code>config_build.sh</code></li>
+          <ul>
+            <li>The basic restartless add-on skeleton also includes a build script to package and install your add-on</li>
+          </ul>
+        </ul>
+      </section>
+    </div></div>
 
-        <div class="slide" id="11"><div>
-            <section>
-                <header>
-                    <h2>Implementing the UI</h2>
-                </header>
-                <ul>
-                    <li><code>loadIntoWindow()</code> to initialize our add-on</li>
-                    <li><code>unloadFromWindow()</code> to clean up any changes we've made</li>
-                </ul>
-                <pre style="font-size:22px;">
-                    <code>var menuId;</code>
-                    <code>function <mark>loadIntoWindow</mark>(window) {</code>
-                    <code>  menuId = window.NativeWindow.menu.add(</code>
-                    <code>    "View Source", null, function() { viewSource(window); });</code>
-                    <code>}</code>
-                    <code>function <mark>unloadFromWindow</mark>(window) {</code>
-                    <code>  window.NativeWindow.menu.remove(menuId);</code>
-                    <code>}</code>
-                </pre>
-            </section>
-        </div></div>
+    <div class="slide" id="11"><div>
+      <section>
+        <header>
+          <h2>Implementing the UI</h2>
+        </header>
+        <ul>
+          <li><code>loadIntoWindow()</code> to initialize our add-on</li>
+          <li><code>unloadFromWindow()</code> to clean up any changes we've made</li>
+        </ul>
+        <pre style="font-size:22px;">
+          <code>var menuId;</code>
+          <code>function <mark>loadIntoWindow</mark>(window) {</code>
+          <code>  menuId = window.NativeWindow.menu.add(</code>
+          <code>    "View Source", null, function() { viewSource(window); });</code>
+          <code>}</code>
+          <code>function <mark>unloadFromWindow</mark>(window) {</code>
+          <code>  window.NativeWindow.menu.remove(menuId);</code>
+          <code>}</code>
+        </pre>
+      </section>
+    </div></div>
 
-        <div class="slide" id="12"><div>
-            <section>
-                <header>
-                    <h2>Implementing Behavior</h2>
-                </header>
-                <ul>
-                    <li>Now we need to implement the <code>viewSource()</code> function</li>
-                </ul>
-                <pre style="font-size: 22px;">
-                    <code>function <mark>viewSource</mark>(window) {</code>
-                    <code>  let url = window.content.location.href;</code>
-                    <code>  window.console.log("displaying source for " + url);</code>
-                    <code>  window.BrowserApp.addTab("view-source:" + url);</code>
-                    <code>}</code>
-                </pre>
-            </section>
-        </div></div>
+    <div class="slide" id="12"><div>
+      <section>
+        <header>
+          <h2>Implementing Behavior</h2>
+        </header>
+        <ul>
+          <li>Now we need to implement the <code>viewSource()</code> function</li>
+        </ul>
+        <pre style="font-size: 22px;">
+          <code>function <mark>viewSource</mark>(window) {</code>
+          <code>  let url = window.content.location.href;</code>
+          <code>  window.console.log("displaying source for " + url);</code>
+          <code>  window.BrowserApp.addTab("view-source:" + url);</code>
+          <code>}</code>
+        </pre>
+      </section>
+    </div></div>
 
-        <div class="slide" id="13"><div>
-            <section>
-                <header>
-                    <h2>Testing the Add-on</h2>
-                </header>
-                <ul>
-                    <li>Packaging</li>
-                    <ul>
-                        <li>Zip up install.rdf and bootstrap.js into a .xpi file</li>
-                    </ul>
-                    <li>Installing</li>
-                    <ul>
-                        <li>Put your add-on on your device using <code>adb push</code></li>
-                        <li>Open the .xpi file using Firefox</li>
-                    </ul>
-                    <li>If you are using the add-on skeleton, you can run <code>./build.sh</code> to do this all for you!</li>
-                    <ul>
-                        <li>Edit <code>config_build.sh</code> to name your .xpi file</li>
-                        <li>Make sure adb is in your root path</li>
-                    </ul>
-                </ul>
-            </section>
-        </div></div>
+    <div class="slide" id="13"><div>
+      <section>
+        <header>
+          <h2>Testing the Add-on</h2>
+        </header>
+        <ul>
+          <li>Packaging</li>
+          <ul>
+            <li>Zip up install.rdf and bootstrap.js into a .xpi file</li>
+          </ul>
+          <li>Installing</li>
+          <ul>
+            <li>Put your add-on on your device using <code>adb push</code></li>
+            <li>Open the .xpi file using Firefox</li>
+          </ul>
+          <li>If you are using the add-on skeleton, you can run <code>./build.sh</code> to do this all for you!</li>
+          <ul>
+            <li>Edit <code>config_build.sh</code> to name your .xpi file</li>
+            <li>Make sure adb is in your root path</li>
+          </ul>
+        </ul>
+      </section>
+    </div></div>
 
-        <div class="slide" id="14"><div>
-            <section>
-                <header>
-                    <h2>Using Remote Developer Tools</h2>
-                </header>
-                <ul>
-                    <li>Remote debugger</li>
-                    <li>Remote inspector (new in Firefox 26!)</li>
-                    <li>Documentation about using these tools is <a href="https://developer.mozilla.org/en-US/docs/Tools/Remote_Debugging">available on MDN</a></li>
-                </ul>
-            </section>
-        </div></div>
+    <div class="slide" id="14"><div>
+      <section>
+        <header>
+          <h2>Using Remote Developer Tools</h2>
+        </header>
+        <ul>
+          <li>Remote debugger</li>
+          <li>Remote inspector (new in Firefox 26!)</li>
+          <li>Documentation about using these tools is <a href="https://developer.mozilla.org/en-US/docs/Tools/Remote_Debugging">available on MDN</a></li>
+        </ul>
+      </section>
+    </div></div>
 
-        <div class="slide shout" id="15"><div>
-            <section>
-                <h2 class="smaller">Demo time!</h2>
-            </section>
-        </div></div>
+    <div class="slide shout" id="15"><div>
+      <section>
+        <h2 class="smaller">Demo time!</h2>
+      </section>
+    </div></div>
 
-        <div class="slide" id="16"><div>
-            <section>
-                <header>
-                    <h2>More Resources</h2>
-                </header>
-                <ul>
-                    <li><a href="https://developer.mozilla.org/en-US/docs/Extensions/Mobile">MDN Documentation</a></li>
-                    <li>Communicate with the Firefox for Android development team</li>
-                    <ul>
-                        <li>File bugs in the <a href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Firefox%20for%20Android">Firefox for Android Bugzilla component</a></li>
-                        <li>Join #mobile and/or #extdev on irc.mozilla.org</li>
-                        <li>Follow <a href="http://twitter.com/FennecNightly">@FennecNightly</a> on Twitter</li>
-                    </ul>
-                    <li>View this slide deck at <a href="http://leibovic.github.io/mobile-addons/">http://leibovic.github.io/mobile-addons/</a></li>
-                </ul>
-            </section>
-        </div></div>
+    <div class="slide" id="16"><div>
+      <section>
+        <header>
+          <h2>More Resources</h2>
+        </header>
+        <ul>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Extensions/Mobile">MDN Documentation</a></li>
+          <li>Communicate with the Firefox for Android development team</li>
+          <ul>
+            <li>File bugs in the <a href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Firefox%20for%20Android">Firefox for Android Bugzilla component</a></li>
+            <li>Join #mobile and/or #extdev on irc.mozilla.org</li>
+            <li>Follow <a href="http://twitter.com/FennecNightly">@FennecNightly</a> on Twitter</li>
+          </ul>
+          <li>View this slide deck at <a href="http://leibovic.github.io/mobile-addons/">http://leibovic.github.io/mobile-addons/</a></li>
+        </ul>
+      </section>
+    </div></div>
 
-        <script src="scripts/script.js"></script>
-        <!-- Copyright © 2010–2012 Vadim Makeev — pepelsbey.net -->
-        <!-- Photos by John Carey — fiftyfootshadows.net -->
+    <script src="scripts/script.js"></script>
+    <!-- Copyright © 2010–2012 Vadim Makeev — pepelsbey.net -->
+    <!-- Photos by John Carey — fiftyfootshadows.net -->
 </body>
 </html>
+
